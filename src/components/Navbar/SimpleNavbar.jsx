@@ -71,9 +71,7 @@ const NavbarSimple = () => {
         <div className="flex gap-2 items-center">
           <div>
             <Link to="/login">
-              <Button variant="outlined" color="blue">
-                Log In
-              </Button>
+              <Button variant="outlined">Log In</Button>
             </Link>
           </div>
           <IconButton
