@@ -4,10 +4,13 @@ import {
   Typography,
   IconButton,
   Button,
+  Tooltip,
+  Avatar,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const NavList = () => {
   return (
@@ -41,6 +44,8 @@ const NavList = () => {
 };
 
 const NavbarSimple = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const [openNav, setOpenNav] = useState(false);
 
   const handleWindowResize = () =>
@@ -55,7 +60,7 @@ const NavbarSimple = () => {
   }, []);
 
   return (
-    <Navbar className="px-6 py-3 mx-auto min-w-full">
+    <Navbar className="min-w-full px-6 py-3 mx-auto">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -68,11 +73,29 @@ const NavbarSimple = () => {
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           <div>
-            <Link to="/login">
-              <Button variant="outlined">Log In</Button>
-            </Link>
+            {user ? (
+              <>
+                <Tooltip content={user.displayName || "user"}>
+                  <Avatar
+                    src={
+                      user.photoURL ||
+                      "https://docs.material-tailwind.com/img/face-2.jpg"
+                    }
+                    alt="avatar"
+                  />
+                </Tooltip>
+
+                <Button variant="outlined" onClick={logOut} className="ml-2">
+                  Log Out
+                </Button>
+              </>
+            ) : (
+              <Link to="/login">
+                <Button variant="outlined">Log In</Button>
+              </Link>
+            )}
           </div>
           <IconButton
             variant="text"

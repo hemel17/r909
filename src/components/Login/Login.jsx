@@ -1,8 +1,11 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -11,8 +14,9 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    console.log(email, password);
-    // Handle form submission logic here (e.g., send data to server)
+    login(email, password)
+      .then((resutl) => console.log(resutl.user))
+      .catch((error) => console.error(error));
   };
 
   return (
