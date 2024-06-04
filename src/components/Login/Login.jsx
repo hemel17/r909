@@ -10,18 +10,23 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { email, password } = data;
+    console.log(email, password);
     // Handle form submission logic here (e.g., send data to server)
   };
 
   return (
-    <Card color="transparent" shadow={false} className="my-4 md:my-6">
+    <Card
+      color="transparent"
+      shadow={false}
+      className="min-h-screen my-4 md:my-6"
+    >
       <div className="mx-auto">
         <Typography variant="h4" color="blue-gray" className="text-center">
           Login Here
         </Typography>
         <Typography color="gray" className="mt-1 font-normal text-center">
-          Nice to meet you! Enter your details to register.
+          Nice to meet you! Enter your details to login.
         </Typography>
         <form
           onSubmit={handleSubmit(onSubmit)}
