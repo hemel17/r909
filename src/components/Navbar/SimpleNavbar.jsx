@@ -6,6 +6,7 @@ import {
   Button,
   Tooltip,
   Avatar,
+  Spinner,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
@@ -44,7 +45,7 @@ const NavList = () => {
 };
 
 const NavbarSimple = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loading } = useContext(AuthContext);
   console.log(user);
   const [openNav, setOpenNav] = useState(false);
 
@@ -74,29 +75,33 @@ const NavbarSimple = () => {
           <NavList />
         </div>
         <div className="flex items-center gap-2">
-          <div>
-            {user ? (
-              <>
-                <Tooltip content={user.displayName || "user"}>
-                  <Avatar
-                    src={
-                      user.photoURL ||
-                      "https://docs.material-tailwind.com/img/face-2.jpg"
-                    }
-                    alt="avatar"
-                  />
-                </Tooltip>
+          {loading ? (
+            <Spinner color="blue" />
+          ) : (
+            <div>
+              {user ? (
+                <>
+                  <Tooltip content={user.displayName || "user"}>
+                    <Avatar
+                      src={
+                        user.photoURL ||
+                        "https://docs.material-tailwind.com/img/face-2.jpg"
+                      }
+                      alt="avatar"
+                    />
+                  </Tooltip>
 
-                <Button variant="outlined" onClick={logOut} className="ml-2">
-                  Log Out
-                </Button>
-              </>
-            ) : (
-              <Link to="/login">
-                <Button variant="outlined">Log In</Button>
-              </Link>
-            )}
-          </div>
+                  <Button variant="outlined" onClick={logOut} className="ml-2">
+                    Log Out
+                  </Button>
+                </>
+              ) : (
+                <Link to="/login">
+                  <Button variant="outlined">Log In</Button>
+                </Link>
+              )}
+            </div>
+          )}
           <IconButton
             variant="text"
             className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"

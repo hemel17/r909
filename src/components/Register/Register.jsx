@@ -1,22 +1,62 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const [passwordValidationMessage, setPasswordValidationMessage] =
+    useState("");
+
+  const onSubmit = async (data) => {
     const { email, password } = data;
-    createUser(email, password)
-      .then((resutl) => console.log(resutl.user))
-      .catch((error) => console.error(error));
+
+    try {
+      const result = await createUser(email, password);
+      console.log(result.user);
+      navigate(location?.state ? location.state : "/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const validatePassword = (value) => {
+    const hasUppercase = /[A-Z]/.test(value);
+    const hasLowercase = /[a-z]/.test(value);
+    const isLongEnough = value.length >= 6;
+
+    if (!hasUppercase) {
+      setPasswordValidationMessage(
+        "Password must contain at least one uppercase letter."
+      );
+      return false;
+    }
+
+    if (!hasLowercase) {
+      setPasswordValidationMessage(
+        "Password must contain at least one lowercase letter."
+      );
+      return false;
+    }
+
+    if (!isLongEnough) {
+      setPasswordValidationMessage(
+        "Password must be at least 6 characters long."
+      );
+      return false;
+    }
+
+    setPasswordValidationMessage("");
+    return true;
   };
 
   return (
@@ -74,10 +114,17 @@ const Register = () => {
                 className: "before:content-none after:content-none",
               }}
               // Register the password field with react-hook-form
-              {...register("password", { required: true })}
+              {...register("password", {
+                required: true,
+                validate: validatePassword,
+              })}
             />
             {errors.password && (
-              <span className="text-sm text-red-500">Password is required</span>
+              <span className="text-sm text-red-500">
+                {errors.password.type === "required" && "Password is required"}
+                {errors.password.type === "validate" &&
+                  passwordValidationMessage}
+              </span>
             )}
           </div>
 

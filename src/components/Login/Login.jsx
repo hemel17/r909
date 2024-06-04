@@ -1,22 +1,42 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Bounce, toast } from "react-toastify";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { email, password } = data;
-    login(email, password)
-      .then((resutl) => console.log(resutl.user))
-      .catch((error) => console.error(error));
+    try {
+      const result = await login(email, password);
+      console.log(result.user);
+      reset();
+      navigate(location?.state ? location.state : "/");
+    } catch (error) {
+      console.error(error);
+      toast.error("Your Email or Password is incorrect!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
   };
 
   return (
