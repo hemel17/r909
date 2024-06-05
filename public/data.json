@@ -1,0 +1,110 @@
+[
+  {
+    "image": "https://i.ibb.co/TrV5VD2/image.png",
+    "estate_title": "Luxury Villa in Beverly Hills",
+    "id": 1,
+    "segment_name": "Luxury",
+    "description": "A stunning villa with panoramic views and exquisite design.",
+    "price": "$10,000,000",
+    "status": "sale",
+    "area": "5000 sq ft",
+    "location": "Beverly Hills, CA",
+    "facilities": ["living room", "swimming pool", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/4P5zV9t/image.png",
+    "estate_title": "Modern Apartment in New York",
+    "id": 2,
+    "segment_name": "Residential",
+    "description": "A stylish apartment located in the heart of Manhattan.",
+    "price": "$2,500,000",
+    "status": "sale",
+    "area": "1500 sq ft",
+    "location": "New York, NY",
+    "facilities": ["living room", "gym", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/LJcPdQ7/image.png",
+    "estate_title": "Cozy Cottage in the Countryside",
+    "id": 3,
+    "segment_name": "Rural",
+    "description": "A charming cottage surrounded by nature, perfect for a quiet retreat.",
+    "price": "$750,000",
+    "status": "sale",
+    "area": "1200 sq ft",
+    "location": "Asheville, NC",
+    "facilities": ["living room", "garden", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/w6T8n10/image.png",
+    "estate_title": "Beachfront Condo in Miami",
+    "id": 4,
+    "segment_name": "Luxury",
+    "description": "A beautiful condo with stunning ocean views and modern amenities.",
+    "price": "$3,000,000",
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "Miami, FL",
+    "facilities": ["living room", "swimming pool", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/y87HWWr/image.png",
+    "estate_title": "Suburban Family Home",
+    "id": 5,
+    "segment_name": "Residential",
+    "description": "A spacious home in a family-friendly neighborhood with excellent schools.",
+    "price": "$850,000",
+    "status": "sale",
+    "area": "2500 sq ft",
+    "location": "San Jose, CA",
+    "facilities": ["living room", "garage", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/2FwRvjh/image.png",
+    "estate_title": "Downtown Loft",
+    "id": 6,
+    "segment_name": "Urban",
+    "description": "A trendy loft in the downtown area with easy access to nightlife and restaurants.",
+    "price": "$1,200,000",
+    "status": "sale",
+    "area": "1800 sq ft",
+    "location": "Chicago, IL",
+    "facilities": ["living room", "gym", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/KKp8j9S/image.png",
+    "estate_title": "Mountain Cabin",
+    "id": 7,
+    "segment_name": "Rural",
+    "description": "A rustic cabin in the mountains, perfect for outdoor enthusiasts.",
+    "price": "$650,000",
+    "status": "sale",
+    "area": "1400 sq ft",
+    "location": "Aspen, CO",
+    "facilities": ["living room", "fireplace", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/72WjYf3/image.png",
+    "estate_title": "Penthouse Suite",
+    "id": 8,
+    "segment_name": "Luxury",
+    "description": "A luxurious penthouse suite with panoramic city views and top-notch amenities.",
+    "price": "$5,000,000",
+    "status": "sale",
+    "area": "3000 sq ft",
+    "location": "Los Angeles, CA",
+    "facilities": ["living room", "private elevator", "kitchen"]
+  },
+  {
+    "image": "https://i.ibb.co/mDWdjxB/image.png",
+    "estate_title": "Coastal Villa",
+    "id": 9,
+    "segment_name": "Luxury",
+    "description": "A magnificent villa on the coast with breathtaking sea views.",
+    "price": "$8,000,000",
+    "status": "sale",
+    "area": "4000 sq ft",
+    "location": "Malibu, CA",
+    "facilities": ["living room", "swimming pool", "kitchen"]
+  }
+]
