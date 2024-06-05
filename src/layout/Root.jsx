@@ -6,9 +6,7 @@ const Root = () => {
   return (
     <section>
       <NavbarSimple />
-      <section className="container max-w-[90%] mx-auto">
-        <Outlet />
-      </section>
+      <Outlet />
       <Footer />
     </section>
   );

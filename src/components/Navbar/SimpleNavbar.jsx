@@ -47,6 +47,7 @@ const NavList = () => {
 const NavbarSimple = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   console.log(user);
+
   const [openNav, setOpenNav] = useState(false);
 
   const handleWindowResize = () =>
@@ -81,7 +82,9 @@ const NavbarSimple = () => {
             <div>
               {user ? (
                 <>
-                  <Tooltip content={user.displayName || "user"}>
+                  <Tooltip
+                    content={user?.displayName ? user.displayName : "user"}
+                  >
                     <Avatar
                       src={
                         user.photoURL ||

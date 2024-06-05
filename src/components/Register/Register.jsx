@@ -1,12 +1,11 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
-  const location = useLocation();
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -18,14 +17,15 @@ const Register = () => {
     useState("");
 
   const onSubmit = async (data) => {
-    const { email, password } = data;
+    const { email, password, displayName, photoURL } = data;
 
     try {
       const result = await createUser(email, password);
       console.log(result.user);
-      navigate(location?.state ? location.state : "/");
-    } catch (error) {
-      console.error(error);
+      await updateUser(displayName, photoURL);
+      navigate("/");
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -77,6 +77,20 @@ const Register = () => {
           className="max-w-screen-lg mt-8 mb-2 w-80 sm:w-96"
         >
           <div className="flex flex-col gap-6 mb-1">
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Your Name
+            </Typography>
+            <Input
+              size="lg"
+              placeholder="Your Name"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+              {...register("displayName", {
+                required: true,
+              })}
+            />
             {errors.name && (
               <span className="text-sm text-red-500">Name is required</span>
             )}
@@ -90,7 +104,6 @@ const Register = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
-              // Register the email field with react-hook-form
               {...register("email", {
                 required: true,
                 pattern: /\S+@\S+\.\S+/,
@@ -101,6 +114,23 @@ const Register = () => {
                 {errors.email.type === "required" && "Email is required"}
                 {errors.email.type === "pattern" && "Invalid email format"}
               </span>
+            )}
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Photo URL
+            </Typography>
+            <Input
+              size="lg"
+              placeholder="Photo URL"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+              {...register("photoURL", {
+                required: true,
+              })}
+            />
+            {errors.name && (
+              <span className="text-sm text-red-500">PhotoURL is required</span>
             )}
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Password
