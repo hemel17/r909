@@ -6,7 +6,7 @@
     "segment_name": "Luxury",
     "description": "A stunning villa with panoramic views and exquisite design.",
     "price": "$10,000,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "5000 sq ft",
     "location": "Beverly Hills, CA",
     "facilities": ["living room", "swimming pool", "kitchen"]
@@ -18,7 +18,7 @@
     "segment_name": "Residential",
     "description": "A stylish apartment located in the heart of Manhattan.",
     "price": "$2,500,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "1500 sq ft",
     "location": "New York, NY",
     "facilities": ["living room", "gym", "kitchen"]
@@ -30,7 +30,7 @@
     "segment_name": "Rural",
     "description": "A charming cottage surrounded by nature, perfect for a quiet retreat.",
     "price": "$750,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "1200 sq ft",
     "location": "Asheville, NC",
     "facilities": ["living room", "garden", "kitchen"]
@@ -42,7 +42,7 @@
     "segment_name": "Luxury",
     "description": "A beautiful condo with stunning ocean views and modern amenities.",
     "price": "$3,000,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "2000 sq ft",
     "location": "Miami, FL",
     "facilities": ["living room", "swimming pool", "kitchen"]
@@ -54,7 +54,7 @@
     "segment_name": "Residential",
     "description": "A spacious home in a family-friendly neighborhood with excellent schools.",
     "price": "$850,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "2500 sq ft",
     "location": "San Jose, CA",
     "facilities": ["living room", "garage", "kitchen"]
@@ -66,7 +66,7 @@
     "segment_name": "Urban",
     "description": "A trendy loft in the downtown area with easy access to nightlife and restaurants.",
     "price": "$1,200,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "1800 sq ft",
     "location": "Chicago, IL",
     "facilities": ["living room", "gym", "kitchen"]
@@ -78,7 +78,7 @@
     "segment_name": "Rural",
     "description": "A rustic cabin in the mountains, perfect for outdoor enthusiasts.",
     "price": "$650,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "1400 sq ft",
     "location": "Aspen, CO",
     "facilities": ["living room", "fireplace", "kitchen"]
@@ -90,7 +90,7 @@
     "segment_name": "Luxury",
     "description": "A luxurious penthouse suite with panoramic city views and top-notch amenities.",
     "price": "$5,000,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "3000 sq ft",
     "location": "Los Angeles, CA",
     "facilities": ["living room", "private elevator", "kitchen"]
@@ -102,7 +102,7 @@
     "segment_name": "Luxury",
     "description": "A magnificent villa on the coast with breathtaking sea views.",
     "price": "$8,000,000",
-    "status": "sale",
+    "status": "Sell",
     "area": "4000 sq ft",
     "location": "Malibu, CA",
     "facilities": ["living room", "swimming pool", "kitchen"]

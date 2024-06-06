@@ -46,7 +46,6 @@ const NavList = () => {
 
 const NavbarSimple = () => {
   const { user, logOut, loading } = useContext(AuthContext);
-  console.log(user);
 
   const [openNav, setOpenNav] = useState(false);
 

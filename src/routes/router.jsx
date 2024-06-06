@@ -4,6 +4,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 import Home from "../pages/Home/Home";
+import EstateDetails from "../components/EstateDetails/EstateDetails";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader: () => fetch("/data.json"),
         element: <Home />,
       },
       {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/updateProfile",
         element: <UpdateProfile />,
+      },
+      {
+        path: "/estateDetails/:esID",
+        element: <EstateDetails />,
       },
     ],
   },
