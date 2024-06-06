@@ -22,7 +22,8 @@ const Login = () => {
       const result = await login(email, password);
       console.log(result.user);
       reset();
-      navigate(location?.state ? location.state : "/");
+      console.log(location);
+      navigate(location?.pathname ? location.pathname : "/");
     } catch (error) {
       console.error(error);
       toast.error("Your Email or Password is incorrect!", {
