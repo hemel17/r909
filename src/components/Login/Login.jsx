@@ -27,6 +27,17 @@ const Login = () => {
               : location.pathname
             : "/"
         );
+      toast.success("Successfully Logged In!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     });
   };
 
@@ -40,6 +51,17 @@ const Login = () => {
               : location.pathname
             : "/"
         );
+      toast.success("Successfully Logged In!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     });
   };
 
@@ -57,6 +79,17 @@ const Login = () => {
             : location.pathname
           : "/"
       );
+      toast.success("Successfully Logged In!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } catch (error) {
       console.error(error);
       toast.error("Your Email or Password is incorrect!", {

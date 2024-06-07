@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet";
+import { Bounce, toast } from "react-toastify";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
@@ -25,6 +26,17 @@ const Register = () => {
       console.log(result.user);
       await updateUser(displayName, photoURL);
       navigate("/");
+      toast.success("You have registered successfully!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } catch (err) {
       console.error(err);
     }
