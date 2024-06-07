@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
@@ -65,6 +66,9 @@ const Register = () => {
       shadow={false}
       className="min-h-screen my4 md:my-6"
     >
+      <Helmet>
+        <title>Sweet Home || Register</title>
+      </Helmet>
       <div className="mx-auto">
         <Typography variant="h4" color="blue-gray" className="text-center">
           Register

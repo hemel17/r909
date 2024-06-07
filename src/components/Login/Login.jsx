@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Bounce, toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, googleLogin, githubLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -16,6 +17,32 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const handleGoogleLogin = () => {
+    googleLogin().then((res) => {
+      console.log(res),
+        navigate(
+          location?.pathname
+            ? location.pathname === "/login"
+              ? "/"
+              : location.pathname
+            : "/"
+        );
+    });
+  };
+
+  const handleGithubLogin = () => {
+    githubLogin().then((res) => {
+      console.log(res),
+        navigate(
+          location?.pathname
+            ? location.pathname === "/login"
+              ? "/"
+              : location.pathname
+            : "/"
+        );
+    });
+  };
+
   const onSubmit = async (data) => {
     const { email, password } = data;
     try {
@@ -23,7 +50,13 @@ const Login = () => {
       console.log(result.user);
       reset();
       console.log(location);
-      navigate(location?.pathname ? location.pathname : "/");
+      navigate(
+        location?.pathname
+          ? location.pathname === "/login"
+            ? "/"
+            : location.pathname
+          : "/"
+      );
     } catch (error) {
       console.error(error);
       toast.error("Your Email or Password is incorrect!", {
@@ -46,6 +79,9 @@ const Login = () => {
       shadow={false}
       className="min-h-screen my-4 md:my-6"
     >
+      <Helmet>
+        <title>Sweet Home || Login</title>
+      </Helmet>
       <div className="mx-auto">
         <Typography variant="h4" color="blue-gray" className="text-center">
           Login Here
@@ -110,6 +146,20 @@ const Login = () => {
           </Typography>
         </form>
       </div>
+      <Button
+        className="w-64 mx-auto my-4"
+        color="deep-orange"
+        onClick={handleGoogleLogin}
+      >
+        Google login
+      </Button>
+      <Button
+        className="w-64 mx-auto my-4"
+        color="indigo"
+        onClick={handleGithubLogin}
+      >
+        Github login
+      </Button>
     </Card>
   );
 };
