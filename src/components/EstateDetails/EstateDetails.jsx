@@ -1,4 +1,5 @@
 import { Typography } from "@material-tailwind/react";
+import { Helmet } from "react-helmet";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const EstateDetails = () => {
@@ -21,6 +22,9 @@ const EstateDetails = () => {
 
   return (
     <section className="w-full max-w-[90%] mx-auto space-y-4 md:space-y-8 my-10 [&>*]:text-center">
+      <Helmet>
+        <title>Sweet Home || {estate_title}</title>
+      </Helmet>
       <Typography variant="h2" color="blue-gray" className="text-center">
         {estate_title}
       </Typography>

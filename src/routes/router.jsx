@@ -6,11 +6,13 @@ import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 import Home from "../pages/Home/Home";
 import EstateDetails from "../components/EstateDetails/EstateDetails";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import ErrorElemet from "../pages/ErrorElement/ErrorElemet";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorElemet />,
     children: [
       {
         path: "/",
