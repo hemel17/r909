@@ -9,7 +9,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Estates = ({ estates }) => {
-  //   console.log(estates);
   return (
     <section className="w-full max-w-[90%] mx-auto my-10 md:my-16">
       <Typography variant="h2" className="mb-8 text-center md:mb-14">
