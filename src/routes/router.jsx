@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import EstateDetails from "../components/EstateDetails/EstateDetails";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import ErrorElemet from "../pages/ErrorElement/ErrorElemet";
+import Invest from "../components/Invest/Invest";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/updateProfile",
         element: <UpdateProfile />,
+      },
+      {
+        path: "/invest",
+        element: (
+          <PrivateRoute>
+            <Invest />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/estateDetails/:esID",

@@ -40,6 +40,18 @@ const NavList = () => {
           Update Profile
         </NavLink>
       </Typography>
+      <Typography as="li" color="blue-gray" className="p-1 font-medium">
+        <NavLink
+          to="/invest"
+          className={({ isActive }) =>
+            isActive
+              ? "flex items-center transition-colors hover:text-blue-500 text-blue-500"
+              : "flex items-center transition-colors hover:text-blue-500"
+          }
+        >
+          Invest
+        </NavLink>
+      </Typography>
     </ul>
   );
 };
