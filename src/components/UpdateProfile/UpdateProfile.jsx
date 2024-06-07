@@ -8,6 +8,7 @@ import {
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Bounce, toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const UpdateProfile = () => {
   const { user, loading, updateLoggedInUser } = useContext(AuthContext);
@@ -79,6 +80,9 @@ const UpdateProfile = () => {
   };
   return (
     <section className="w-full max-w-[90%] mx-auto my-10 md:my-16">
+      <Helmet>
+        <title>Sweet Home || Update Profile</title>
+      </Helmet>
       <Typography className="text-center" variant="h2" color="blue-gray">
         Update Your Profile Info
       </Typography>

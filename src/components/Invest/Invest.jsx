@@ -1,4 +1,5 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
+import { Helmet } from "react-helmet";
 import { Bounce, toast } from "react-toastify";
 
 const Invest = () => {
@@ -21,6 +22,9 @@ const Invest = () => {
 
   return (
     <section className="w-full max-w-[90%] min-h-screen mx-auto mt-6 md:mt-10">
+      <Helmet>
+        <title>Sweet Home || Invest</title>
+      </Helmet>
       <Typography variant="h2" color="blue-gray" className="text-center">
         Wanna Invest With Us?
       </Typography>
